@@ -65,10 +65,6 @@ public class LedgerView extends TableLayout {
 		}
 	}
 
-	public boolean getInvertCreditAndDebit() {
-		return invertCreditAndDebit;
-	}
-
 	public int getEditableRow() {
 		return editableRow;
 	}
@@ -149,10 +145,6 @@ public class LedgerView extends TableLayout {
 	public void clear() {
 		removeAllViews();
 		updateEditableRow(-1);
-	}
-
-	private void invertCreditDebitHeader() {
-
 	}
 
 	private View inflateRow() {
