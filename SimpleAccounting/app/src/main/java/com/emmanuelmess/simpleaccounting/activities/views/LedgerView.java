@@ -147,22 +147,12 @@ public class LedgerView extends TableLayout {
 		updateEditableRow(-1);
 	}
 
-	private View inflateRow() {
+	private LedgerRow inflateRow() {
 		inflater.inflate(R.layout.row_main, this);
-
-		View row = getChildAt(getChildCount() - 1);
+		LedgerRow row = (LedgerRow) getChildAt(getChildCount() - 1);
 
 		if (invertCreditAndDebit) {
-			row.findViewById(R.id.textCredit).setId(0);
-			row.findViewById(R.id.textDebit).setId(R.id.textCredit);
-			row.findViewById(0).setId(R.id.textDebit);
-
-			row.findViewById(R.id.editCredit).setId(0);
-			row.findViewById(R.id.editDebit).setId(R.id.editCredit);
-			row.findViewById(0).setId(R.id.editDebit);
-
-			((EditText) row.findViewById(R.id.editCredit)).setHint(R.string.credit);
-			((EditText) row.findViewById(R.id.editDebit)).setHint(R.string.debit);
+			row.invertDebitCredit();
 		}
 
 		return row;
